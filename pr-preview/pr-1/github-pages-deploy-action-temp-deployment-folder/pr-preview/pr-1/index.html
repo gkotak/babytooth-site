@@ -1,0 +1,990 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Hi Gaurav Kotak</title>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;1,9..144,300;1,9..144,400&family=Instrument+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --pink:      #F2C4C4;
+  --pink-mid:  #E8A0A0;
+  --pink-deep: #C97070;
+  --pink-bg:   #FDF0F0;
+  --sage:      #B8CEBC;
+  --sage-mid:  #8FAF95;
+  --sage-deep: #5F8A68;
+  --sage-bg:   #EDF4EE;
+  --sky:       #C4D8EE;
+  --sky-bg:    #EEF4FB;
+  --cream:     #FBF7F2;
+  --warm:      #F7F2EC;
+  --taupe:     #D4C8B8;
+  --ink:       #2A2420;
+  --ink-mid:   #5A504A;
+  --ink-light: #8A8078;
+  --white:     #FFFFFF;
+}
+
+*, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+html { scroll-behavior: smooth; font-size: 16px; }
+body {
+  font-family: 'Instrument Sans', sans-serif;
+  background: var(--cream);
+  color: var(--ink);
+  overflow-x: hidden;
+}
+
+/* ── TYPOGRAPHY ── */
+.serif { font-family: 'Fraunces', serif; }
+.serif-italic { font-family: 'Fraunces', serif; font-style: italic; }
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 56px; height: 64px;
+  background: rgba(251,247,242,0.96);
+  backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--taupe);
+}
+.nav-logo {
+  font-family: 'Fraunces', serif;
+  font-size: 1rem; font-weight: 300;
+  color: var(--ink); text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.nav-logo em { font-style: italic; color: var(--pink-deep); }
+.nav-links { display: flex; gap: 36px; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.75rem; letter-spacing: 0.14em; text-transform: uppercase;
+  color: var(--ink-mid); text-decoration: none; transition: color 0.25s;
+}
+.nav-links a:hover { color: var(--ink); }
+.nav-book {
+  background: var(--ink); color: var(--white) !important;
+  padding: 10px 24px; border-radius: 2px;
+  font-size: 0.72rem !important; letter-spacing: 0.12em !important;
+  transition: background 0.25s !important;
+}
+.nav-book:hover { background: var(--pink-deep) !important; }
+
+/* ── HERO ── */
+.hero {
+  min-height: 100vh;
+  display: grid;
+  grid-template-columns: 52% 48%;
+  padding-top: 64px;
+  position: relative;
+  overflow: hidden;
+}
+.hero-left {
+  background: var(--cream);
+  display: flex; flex-direction: column; justify-content: center;
+  padding: 80px 64px 80px 72px;
+  position: relative;
+  z-index: 2;
+}
+.hero-right {
+  background: var(--pink-bg);
+  position: relative;
+  overflow: hidden;
+}
+.hero-right-inner {
+  position: absolute; inset: 0;
+  display: flex; align-items: flex-end; justify-content: center;
+}
+.hero-right img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+/* sage color block top-right */
+.hero-right::before {
+  content: '';
+  position: absolute; top: 0; right: 0;
+  width: 45%; height: 40%;
+  background: var(--sage-bg);
+  z-index: 1;
+}
+/* decorative circle */
+.hero-right::after {
+  content: '';
+  position: absolute; bottom: 80px; left: -40px;
+  width: 200px; height: 200px;
+  border-radius: 50%;
+  border: 1px solid var(--pink);
+  z-index: 3; pointer-events: none;
+}
+.hero-img-wrap {
+  position: absolute; inset: 0; z-index: 2;
+}
+.hero-img-wrap img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: top center;
+}
+.hero-tag {
+  position: absolute; z-index: 4;
+  background: var(--white); padding: 14px 20px;
+  border-left: 3px solid var(--pink-mid);
+}
+.hero-tag-1 { top: 48px; left: 32px; }
+.hero-tag-2 { bottom: 60px; right: 32px; }
+.hero-tag-num {
+  font-family: 'Fraunces', serif; font-size: 1.6rem;
+  font-weight: 300; color: var(--ink); line-height: 1;
+}
+.hero-tag-label {
+  font-size: 0.62rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-light);
+  margin-top: 2px;
+}
+
+.hero-eyebrow {
+  display: flex; align-items: center; gap: 12px;
+  font-size: 0.7rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-deep); margin-bottom: 28px;
+}
+.hero-eyebrow::before {
+  content: ''; display: block;
+  width: 32px; height: 1px; background: var(--sage-deep);
+}
+.hero-h1 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(3rem, 4.5vw, 4.2rem);
+  font-weight: 300; line-height: 1.08;
+  color: var(--ink); margin-bottom: 8px;
+  letter-spacing: -0.02em;
+}
+.hero-h1 em {
+  font-style: italic; color: var(--pink-deep);
+}
+.hero-sub {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 1.1rem; color: var(--ink-mid);
+  margin-bottom: 32px; line-height: 1.5;
+  font-weight: 300;
+}
+.hero-desc {
+  font-size: 0.9rem; line-height: 1.8;
+  color: var(--ink-mid); max-width: 400px;
+  margin-bottom: 40px;
+}
+.hero-badges {
+  display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 44px;
+}
+.hbadge {
+  font-size: 0.68rem; letter-spacing: 0.08em;
+  padding: 6px 14px; border: 1px solid; border-radius: 2px;
+  white-space: nowrap;
+}
+.hb-pink { border-color: var(--pink-mid); color: var(--pink-deep); background: var(--pink-bg); }
+.hb-sage { border-color: var(--sage-mid); color: var(--sage-deep); background: var(--sage-bg); }
+.hb-sky  { border-color: var(--sky); color: #4A7EA0; background: var(--sky-bg); }
+.hero-ctas { display: flex; gap: 16px; align-items: center; }
+.cta-main {
+  background: var(--ink); color: var(--white);
+  text-decoration: none; padding: 16px 36px;
+  font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+  border-radius: 2px; transition: all 0.25s;
+}
+.cta-main:hover { background: var(--pink-deep); }
+.cta-ghost {
+  font-size: 0.8rem; color: var(--ink-mid); text-decoration: none;
+  letter-spacing: 0.06em; transition: color 0.25s;
+  display: flex; align-items: center; gap: 6px;
+}
+.cta-ghost:hover { color: var(--ink); }
+
+/* ── TICKER / COLOR STRIP ── */
+.color-strip {
+  display: flex; height: 10px;
+}
+.cs-1 { flex: 1; background: var(--pink); }
+.cs-2 { flex: 1; background: var(--sage); }
+.cs-3 { flex: 1; background: var(--sky); }
+.cs-4 { flex: 1; background: #F0D8B8; }
+.cs-5 { flex: 1; background: #D8C8E8; }
+
+/* ── PHOTO STRIP ── */
+.photo-strip {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  height: 260px; overflow: hidden;
+}
+.photo-strip-item {
+  overflow: hidden; position: relative;
+  transition: flex 0.5s ease;
+}
+.photo-strip-item img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform 0.6s ease;
+}
+.photo-strip-item:hover img { transform: scale(1.06); }
+.photo-strip-caption {
+  position: absolute; bottom: 0; left: 0; right: 0;
+  background: linear-gradient(transparent, rgba(42,36,32,0.6));
+  padding: 20px 14px 10px;
+  font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: rgba(255,255,255,0.9);
+  opacity: 0; transition: opacity 0.3s;
+}
+.photo-strip-item:hover .photo-strip-caption { opacity: 1; }
+
+/* ── SECTIONS ── */
+.section { padding: 96px 72px; }
+.section-inner { max-width: 1100px; margin: 0 auto; }
+.eyebrow {
+  font-size: 0.68rem; letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--sage-deep); margin-bottom: 18px;
+  display: flex; align-items: center; gap: 12px;
+}
+.eyebrow-pink { color: var(--pink-deep); }
+.eyebrow::before { content: ''; width: 24px; height: 1px; background: currentColor; }
+h2 {
+  font-family: 'Fraunces', serif;
+  font-size: clamp(2rem, 3vw, 2.8rem);
+  font-weight: 300; line-height: 1.18;
+  color: var(--ink); margin-bottom: 20px;
+  letter-spacing: -0.02em;
+}
+h2 em { font-style: italic; color: var(--pink-deep); }
+.body { font-size: 0.9rem; line-height: 1.85; color: var(--ink-mid); margin-bottom: 16px; }
+
+/* ── ABOUT / PHILOSOPHY ── */
+.philosophy { background: var(--white); }
+.philosophy .section-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start;
+}
+.phil-quote {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 1.55rem; font-weight: 300; line-height: 1.55;
+  color: var(--ink); padding: 32px 32px 32px 36px;
+  border-left: 2px solid var(--pink-mid);
+  background: var(--pink-bg);
+  margin-bottom: 32px;
+}
+.creds-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+.cred-card {
+  padding: 20px; background: var(--cream);
+  border: 1px solid var(--taupe);
+  transition: border-color 0.25s, transform 0.25s;
+}
+.cred-card:hover { border-color: var(--pink-mid); transform: translateY(-3px); }
+.cred-icon { font-size: 1.3rem; margin-bottom: 10px; }
+.cred-title { font-size: 0.78rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.cred-sub { font-size: 0.7rem; color: var(--ink-light); line-height: 1.5; }
+.langs { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 28px; }
+.lang-pill {
+  font-size: 0.7rem; padding: 5px 12px;
+  background: var(--sage-bg); border: 1px solid var(--sage);
+  color: var(--sage-deep); border-radius: 2px;
+}
+
+/* ── SERVICES ── */
+.services { background: var(--cream); }
+.services-head { text-align: center; max-width: 540px; margin: 0 auto 56px; }
+.services-grid { display: grid; grid-template-columns: repeat(3,1fr); gap: 1px; background: var(--taupe); }
+.svc {
+  background: var(--white); padding: 40px 32px;
+  transition: background 0.3s;
+  position: relative; overflow: hidden;
+}
+.svc::before {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.35s ease;
+}
+.svc:hover::before { transform: scaleX(1); }
+.svc-pink::before  { background: var(--pink-mid); }
+.svc-sage::before  { background: var(--sage-mid); }
+.svc-sky::before   { background: var(--sky); }
+.svc-peach::before { background: #F0C8A0; }
+.svc-lav::before   { background: #C8B8E8; }
+.svc-mint::before  { background: #A8D8B8; }
+.svc:hover { background: var(--cream); }
+.svc-num {
+  font-family: 'Fraunces', serif; font-size: 2.5rem;
+  font-weight: 300; color: var(--taupe); line-height: 1;
+  margin-bottom: 16px;
+}
+.svc-title {
+  font-family: 'Fraunces', serif; font-size: 1.1rem;
+  font-weight: 300; color: var(--ink); margin-bottom: 10px;
+}
+.svc-desc { font-size: 0.8rem; line-height: 1.75; color: var(--ink-mid); }
+
+/* ── ABOUT DR NIDHI ── */
+.about { background: var(--ink); color: var(--white); }
+.about .section-inner { display: grid; grid-template-columns: 5fr 7fr; gap: 80px; align-items: start; }
+.about-mosaic { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; }
+.mosaic-full { grid-column: 1/-1; height: 300px; overflow: hidden; position: relative; }
+.mosaic-full img { width: 100%; height: 100%; object-fit: cover; object-position: top center; }
+.mosaic-half { height: 180px; overflow: hidden; position: relative; }
+.mosaic-half img { width: 100%; height: 100%; object-fit: cover; object-position: center; }
+.patient-blur-overlay {
+  position: absolute; inset: 0;
+  backdrop-filter: blur(20px);
+  background: rgba(42,36,32,0.08);
+}
+.about .eyebrow { color: var(--pink); }
+.about .eyebrow::before { background: var(--pink); }
+.about h2 { color: var(--white); }
+.about h2 em { color: var(--pink); }
+.about .body { color: rgba(255,255,255,0.68); }
+.awards { margin-top: 32px; display: flex; flex-direction: column; gap: 10px; }
+.award {
+  display: flex; gap: 16px; align-items: flex-start;
+  padding: 14px 16px;
+  border-left: 2px solid var(--pink-mid);
+  background: rgba(255,255,255,0.05);
+}
+.award-yr {
+  font-size: 0.65rem; color: var(--pink);
+  letter-spacing: 0.1em; font-weight: 600;
+  min-width: 32px; padding-top: 2px;
+}
+.award-txt { font-size: 0.8rem; color: rgba(255,255,255,0.75); line-height: 1.45; }
+
+/* ── GLOBAL / MISSION ── */
+.mission { background: var(--sage-bg); }
+.mission .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.mission-photo { position: relative; overflow: hidden; }
+.mission-photo img { width: 100%; display: block; object-fit: cover; }
+.mission-patient-blur {
+  position: absolute; bottom: 0; left: 0; right: 0; height: 52%;
+  backdrop-filter: blur(22px);
+  background: rgba(237,244,238,0.15);
+}
+.world-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 12px; margin-top: 36px; }
+.wstat {
+  background: var(--white); padding: 20px 16px;
+  border-top: 2px solid var(--sage-mid);
+  text-align: center;
+}
+.wstat-num {
+  font-family: 'Fraunces', serif; font-size: 1.8rem;
+  font-weight: 300; color: var(--sage-deep); line-height: 1;
+}
+.wstat-label {
+  font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase;
+  color: var(--ink-light); margin-top: 6px;
+}
+
+/* ── MULTILINGUAL ── */
+.multilingual { background: var(--pink-bg); }
+.multilingual .section-inner { text-align: center; max-width: 720px; }
+.multilingual h2 { margin-bottom: 12px; }
+.lang-grid {
+  display: grid; grid-template-columns: repeat(6,1fr); gap: 12px;
+  margin-top: 40px;
+}
+.lang-card {
+  background: var(--white); padding: 20px 12px;
+  border: 1px solid var(--pink);
+  transition: all 0.25s;
+}
+.lang-card:hover { background: var(--pink); border-color: var(--pink-deep); }
+.lang-flag { font-size: 1.6rem; margin-bottom: 8px; display: block; }
+.lang-name { font-size: 0.72rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; }
+.lang-native { font-size: 0.8rem; color: var(--ink-mid); }
+
+/* ── PRESS ── */
+.press { background: var(--cream); }
+.press .section-inner { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+.press-img {
+  position: relative;
+}
+.press-img img { width: 100%; display: block; }
+.press-img::after {
+  content: '';
+  position: absolute; top: 16px; left: 16px;
+  width: 100%; height: 100%;
+  border: 1px solid var(--taupe);
+  z-index: -1;
+}
+.press-quote {
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 1.4rem; font-weight: 300; line-height: 1.6;
+  color: var(--ink); margin: 24px 0 16px;
+  padding-left: 24px; border-left: 2px solid var(--pink-mid);
+}
+.press-source { font-size: 0.7rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--ink-light); }
+
+/* ── INSTAGRAM ── */
+.instagram { background: var(--white); }
+.insta-head { text-align: center; max-width: 480px; margin: 0 auto 48px; }
+.insta-handle {
+  display: inline-block;
+  font-family: 'Fraunces', serif; font-style: italic;
+  font-size: 1.5rem; font-weight: 300;
+  background: linear-gradient(135deg, #f09433, #e6683c, #dc2743, #cc2366, #bc1888);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  text-decoration: none; margin-bottom: 28px;
+}
+.insta-grid {
+  display: grid; grid-template-columns: repeat(4,1fr); gap: 8px;
+  max-width: 880px; margin: 0 auto 40px;
+}
+.insta-tile {
+  aspect-ratio: 1; overflow: hidden; position: relative;
+  cursor: pointer;
+}
+.insta-tile img {
+  width: 100%; height: 100%;
+  object-fit: cover; object-position: center top;
+  transition: transform 0.5s ease;
+}
+.insta-tile:hover img { transform: scale(1.08); }
+.insta-overlay {
+  position: absolute; inset: 0;
+  background: linear-gradient(to top, rgba(42,36,32,0.65) 0%, transparent 55%);
+  opacity: 0; transition: opacity 0.3s;
+  display: flex; align-items: flex-end; padding: 14px;
+}
+.insta-tile:hover .insta-overlay { opacity: 1; }
+.insta-cap { font-size: 0.65rem; color: rgba(255,255,255,0.9); letter-spacing: 0.06em; }
+/* plain topic tiles */
+.insta-plain {
+  aspect-ratio: 1; display: flex; flex-direction: column;
+  align-items: center; justify-content: center; gap: 8px;
+}
+.ip-1 { background: var(--pink-bg); }
+.ip-2 { background: var(--sage-bg); }
+.ip-3 { background: var(--sky-bg); }
+.ip-4 { background: #FDF0E0; }
+.insta-plain-icon { font-size: 1.8rem; }
+.insta-plain-label { font-size: 0.65rem; color: var(--ink-mid); text-align: center; letter-spacing: 0.06em; font-weight: 500; padding: 0 8px; }
+
+/* ── CONTACT ── */
+.contact {
+  background: var(--ink);
+  color: var(--white);
+}
+.contact .section-inner { display: grid; grid-template-columns: 1fr 1.1fr; gap: 80px; align-items: start; }
+.contact .eyebrow { color: var(--pink); }
+.contact .eyebrow::before { background: var(--pink); }
+.contact h2 { color: var(--white); }
+.contact h2 em { color: var(--pink); }
+.contact .body { color: rgba(255,255,255,0.65); }
+.contact-details { margin-top: 32px; display: flex; flex-direction: column; gap: 14px; }
+.cd-item { display: flex; align-items: center; gap: 14px; font-size: 0.85rem; color: rgba(255,255,255,0.7); }
+.cd-icon {
+  width: 36px; height: 36px; border: 1px solid rgba(255,255,255,0.15);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.95rem; flex-shrink: 0;
+}
+.contact-form {
+  background: var(--white); padding: 40px;
+  color: var(--ink);
+}
+.form-title {
+  font-family: 'Fraunces', serif; font-size: 1.3rem;
+  font-weight: 300; color: var(--ink); margin-bottom: 28px;
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+.form-group { margin-bottom: 16px; }
+label {
+  display: block; font-size: 0.68rem; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--ink-light); margin-bottom: 7px;
+}
+input, textarea, select {
+  width: 100%; padding: 11px 14px;
+  border: 1px solid var(--taupe);
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.86rem; color: var(--ink);
+  background: var(--cream); outline: none;
+  border-radius: 0;
+  transition: border-color 0.25s;
+  -webkit-appearance: none; appearance: none;
+}
+input:focus, textarea:focus, select:focus { border-color: var(--pink-deep); }
+textarea { resize: none; height: 88px; }
+.btn-submit {
+  width: 100%; padding: 15px;
+  background: var(--ink); color: var(--white); border: none;
+  font-family: 'Instrument Sans', sans-serif;
+  font-size: 0.78rem; letter-spacing: 0.14em; text-transform: uppercase;
+  cursor: pointer; transition: background 0.25s; margin-top: 8px;
+  border-radius: 0;
+}
+.btn-submit:hover { background: var(--pink-deep); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--cream); border-top: 1px solid var(--taupe);
+  padding: 32px 72px;
+  display: flex; justify-content: space-between; align-items: center;
+  flex-wrap: wrap; gap: 16px;
+}
+.footer-logo {
+  font-family: 'Fraunces', serif; font-weight: 300;
+  color: var(--ink); font-size: 0.95rem;
+}
+.footer-logo em { font-style: italic; color: var(--pink-deep); }
+.footer-links { display: flex; gap: 24px; }
+.footer-links a {
+  color: var(--ink-light); text-decoration: none;
+  font-size: 0.72rem; letter-spacing: 0.1em; text-transform: uppercase;
+  transition: color 0.25s;
+}
+.footer-links a:hover { color: var(--pink-deep); }
+.footer-copy { font-size: 0.7rem; color: var(--ink-light); }
+
+/* ── FLOATING CTA ── */
+.fab {
+  position: fixed; bottom: 28px; right: 28px; z-index: 99;
+  background: var(--pink-deep); color: white; text-decoration: none;
+  width: 52px; height: 52px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.3rem;
+  box-shadow: 0 4px 20px rgba(201,112,112,0.45);
+  animation: fabFloat 3s ease-in-out infinite;
+  transition: background 0.25s;
+}
+.fab:hover { background: var(--ink); }
+@keyframes fabFloat { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+.hero-left > * { animation: fadeUp 0.65s ease both; }
+.hero-eyebrow      { animation-delay: 0.05s; }
+.hero-h1           { animation-delay: 0.15s; }
+.hero-sub          { animation-delay: 0.22s; }
+.hero-desc         { animation-delay: 0.28s; }
+.hero-badges       { animation-delay: 0.34s; }
+.hero-ctas         { animation-delay: 0.42s; }
+.hero-right        { animation: fadeUp 0.8s ease 0.2s both; }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  nav { padding: 0 20px; }
+  .nav-links { display: none; }
+  .hero { grid-template-columns: 1fr; }
+  .hero-left { padding: 40px 24px 32px; }
+  .hero-right { height: 360px; }
+  .section { padding: 60px 24px; }
+  .philosophy .section-inner,
+  .about .section-inner,
+  .mission .section-inner,
+  .press .section-inner,
+  .contact .section-inner { grid-template-columns: 1fr; gap: 40px; }
+  .services-grid { grid-template-columns: 1fr 1fr; }
+  .lang-grid { grid-template-columns: repeat(3,1fr); }
+  .insta-grid { grid-template-columns: repeat(2,1fr); }
+  .photo-strip { grid-template-columns: repeat(3,1fr); }
+  footer { padding: 28px 24px; flex-direction: column; text-align: center; }
+  .world-stats { grid-template-columns: repeat(3,1fr); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="#"><em>the baby tooth</em> dentist</a>
+  <ul class="nav-links">
+    <li><a href="#about">About</a></li>
+    <li><a href="#services">Services</a></li>
+    <li><a href="#dr-nidhi">Dr. Nidhi</a></li>
+    <li><a href="#languages">Languages</a></li>
+    <li><a href="#contact" class="nav-book">Book Now</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-left">
+    <div class="hero-eyebrow">Paediatric Dentistry · Dubai, UAE</div>
+    <h1 class="hero-h1">The dentist<br>your child will<br><em>actually love</em></h1>
+    <p class="hero-sub">Board-certified. World-travelled. She speaks your language.</p>
+    <p class="hero-desc">Dual American & Canadian board-certified paediatric dentist bringing 15+ years of international expertise — from Philadelphia to Kenya to Dubai — to your family. Because every child deserves a dentist who truly gets them.</p>
+    <div class="hero-badges">
+      <span class="hbadge hb-pink">🇺🇸 American Board Certified</span>
+      <span class="hbadge hb-sage">🇨🇦 FRCD Canada Fellow</span>
+      <span class="hbadge hb-sky">🏥 DHA Licensed Dubai</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#contact" class="cta-main">Book an Appointment</a>
+      <a href="#services" class="cta-ghost">Our Services →</a>
+    </div>
+  </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <img src="photo-hero.jpeg" alt="Dr. Nidhi Kotak, Paediatric Dentist Dubai">
+    </div>
+    <div class="hero-tag hero-tag-1">
+      <div class="hero-tag-num">15+</div>
+      <div class="hero-tag-label">Years Experience</div>
+    </div>
+    <div class="hero-tag hero-tag-2">
+      <div class="hero-tag-num">5</div>
+      <div class="hero-tag-label">Countries Practiced</div>
+    </div>
+  </div>
+</section>
+
+<!-- COLOR STRIP -->
+<div class="color-strip">
+  <div class="cs-1"></div><div class="cs-2"></div>
+  <div class="cs-3"></div><div class="cs-4"></div><div class="cs-5"></div>
+</div>
+
+<!-- PHOTO STRIP -->
+<div class="photo-strip">
+  <div class="photo-strip-item">
+    <img src="photo-clinic.jpeg" alt="Dr. Nidhi in clinic">
+    <div class="photo-strip-caption">In the clinic</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="photo-scrubs.jpeg" alt="Dr. Nidhi with dental puppet">
+    <div class="photo-strip-caption">Making it fun</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="photo-pink.jpeg" alt="Dr. Nidhi in pink scrubs">
+    <div class="photo-strip-caption">Always smiling</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="photo-fun.jpeg" alt="Dr. Nidhi">
+    <div class="photo-strip-caption">Dr. Nidhi</div>
+  </div>
+  <div class="photo-strip-item">
+    <img src="photo-brushing.jpeg" alt="Brushing tips">
+    <div class="photo-strip-caption">Brushing demo</div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philosophy section" id="about">
+  <div class="section-inner">
+    <div>
+      <div class="eyebrow">Philosophy</div>
+      <h2>A first visit that<br><em>changes everything</em></h2>
+      <p class="body">A child's first dental experience shapes their relationship with oral health for life. Every visit with Dr. Nidhi is designed to feel safe, playful, and genuinely joyful — using child-friendly language, gentle techniques, and evidence-based care rooted in over 15 years of international practice.</p>
+      <p class="body">Having practiced across the UAE, USA, Canada, India, and Kenya, Dr. Nidhi brings a rare depth of cultural understanding to every appointment. She doesn't just treat teeth — she builds lifelong trust.</p>
+      <div class="langs">
+        <span class="lang-pill">🗣️ English</span>
+        <span class="lang-pill">हिंदी Hindi</span>
+        <span class="lang-pill">ગુજરાતી Gujarati</span>
+        <span class="lang-pill">ਪੰਜਾਬੀ Punjabi</span>
+        <span class="lang-pill">मराठी Marathi</span>
+        <span class="lang-pill">🇦🇪 Arabic</span>
+      </div>
+    </div>
+    <div>
+      <div class="phil-quote">"A child who feels safe at the dentist today becomes an adult who takes care of their health tomorrow."</div>
+      <div class="creds-grid">
+        <div class="cred-card">
+          <div class="cred-icon">🎓</div>
+          <div class="cred-title">Dual Board Certified</div>
+          <div class="cred-sub">American Board of Pediatric Dentistry & Royal College of Dentists of Canada</div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">🍼</div>
+          <div class="cred-title">Lactation Counselor</div>
+          <div class="cred-sub">Certified CLC — expert in tongue & lip tie releases for newborns</div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">🔬</div>
+          <div class="cred-title">Published Researcher</div>
+          <div class="cred-sub">AAPD Journal 2024 — randomized controlled trial</div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">🎭</div>
+          <div class="cred-title">Improv Trained</div>
+          <div class="cred-sub">Second City Chicago — using comedy to make every child feel at ease</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SERVICES -->
+<section class="services section" id="services">
+  <div class="section-inner">
+    <div class="services-head">
+      <div class="eyebrow eyebrow-pink">What We Offer</div>
+      <h2>Caring for every <em>little smile</em></h2>
+    </div>
+    <div class="services-grid">
+      <div class="svc svc-pink">
+        <div class="svc-num">01</div>
+        <div class="svc-title">First Dental Visit</div>
+        <p class="svc-desc">Welcoming babies from their very first tooth — around age one. A gentle, fun introduction designed to build lifelong trust with the dentist.</p>
+      </div>
+      <div class="svc svc-sage">
+        <div class="svc-num">02</div>
+        <div class="svc-title">Preventive Care & Cleanings</div>
+        <p class="svc-desc">Regular check-ups, professional cleanings, fluoride treatments, and sealants to keep tiny teeth cavity-free and healthy.</p>
+      </div>
+      <div class="svc svc-sky">
+        <div class="svc-num">03</div>
+        <div class="svc-title">Sedation Dentistry</div>
+        <p class="svc-desc">Safe, compassionate care using laughing gas, oral conscious sedation, or general anesthesia — for anxious children or complex cases.</p>
+      </div>
+      <div class="svc svc-peach">
+        <div class="svc-num">04</div>
+        <div class="svc-title">Laser Dentistry</div>
+        <p class="svc-desc">Minimally invasive laser treatments — faster healing, far less discomfort, and no scary drills for soft tissue procedures.</p>
+      </div>
+      <div class="svc svc-lav">
+        <div class="svc-num">05</div>
+        <div class="svc-title">Tongue & Lip Ties</div>
+        <p class="svc-desc">Expert assessment and gentle laser frenectomy from newborns to teens — supporting feeding, speech, and development.</p>
+      </div>
+      <div class="svc svc-mint">
+        <div class="svc-num">06</div>
+        <div class="svc-title">Hospital Dentistry</div>
+        <p class="svc-desc">Comprehensive treatment under general anesthesia for children with complex medical needs or significant dental anxiety.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT DR NIDHI -->
+<section class="about section" id="dr-nidhi">
+  <div class="section-inner">
+    <div class="about-mosaic">
+      <div class="mosaic-full">
+        <img src="photo-board.jpeg" alt="Dr. Nidhi with American Board of Pediatric Dentistry certificate">
+      </div>
+      <div class="mosaic-half" style="position:relative;">
+        <img src="photo-teaching.jpeg" alt="Dr. Nidhi teaching dentists">
+      </div>
+      <div class="mosaic-half" style="position:relative;">
+        <img src="photo-infant.jpeg" alt="Dr. Nidhi treating an infant">
+        <div class="patient-blur-overlay"></div>
+      </div>
+    </div>
+    <div>
+      <div class="eyebrow">Meet Dr. Nidhi</div>
+      <h2>Globe-trotting mom.<br><em>World-class dentist.</em></h2>
+      <p class="body">Dr. Nidhi Kotak is a dual American & Canadian board-certified Consultant Paediatric Dentist — one of very few practitioners in the world to hold both credentials simultaneously. With over 15 years of international experience across the UAE, USA, Canada, India, and Kenya, she brings a truly global perspective to every child's care.</p>
+      <p class="body">A certified lactation counselor, published researcher, and educator who has taught over 90 general dentists across British Columbia, Dr. Nidhi is also a trained improv comedian (Second City, Chicago) — because she believes laughter is the best behaviour management tool there is.</p>
+      <p class="body">As a mom herself, she understands exactly what parents in Dubai need: a dentist who is clinically exceptional, culturally fluent, and genuinely warm.</p>
+      <div class="awards">
+        <div class="award"><div class="award-yr">2023</div><div class="award-txt">Lucy Hobbs "Woman to Watch" Award — Incisal Edge Magazine</div></div>
+        <div class="award"><div class="award-yr">2022</div><div class="award-txt">Most Outstanding Contribution to Residency — Temple University Hospital</div></div>
+        <div class="award"><div class="award-yr">2024</div><div class="award-txt">Published in AAPD Journal — Randomized Controlled Trial</div></div>
+        <div class="award"><div class="award-yr">2011</div><div class="award-txt">Young Outstanding Dentist Award — Indian Dentist Research & Review</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GLOBAL / MISSION -->
+<section class="mission section" id="mission">
+  <div class="section-inner">
+    <div>
+      <div class="eyebrow">Global Mission</div>
+      <h2>Dentistry without <em>borders</em></h2>
+      <p class="body">Dr. Nidhi has practiced on four continents — and believes that every child, everywhere, deserves exceptional dental care. She has volunteered with the World Health Dental Organization in Maasai Mara, Kenya, and participated in outreach missions in Ladakh, India.</p>
+      <p class="body">It's this global perspective — shaped by different cultures, different families, and different challenges — that makes her uniquely suited for Dubai's extraordinary mix of communities.</p>
+      <div class="world-stats">
+        <div class="wstat">
+          <div class="wstat-num">4</div>
+          <div class="wstat-label">Continents practiced</div>
+        </div>
+        <div class="wstat">
+          <div class="wstat-num">5+</div>
+          <div class="wstat-label">Languages spoken</div>
+        </div>
+        <div class="wstat">
+          <div class="wstat-num">15+</div>
+          <div class="wstat-label">Years experience</div>
+        </div>
+      </div>
+      <br>
+      <a href="#contact" class="cta-main" style="display:inline-block; text-decoration:none; margin-top:8px;">Book Your Child's Visit</a>
+    </div>
+    <div class="mission-photo">
+      <img src="photo-kenya.jpeg" alt="Dr. Nidhi volunteering in Kenya">
+      <div class="mission-patient-blur"></div>
+    </div>
+  </div>
+</section>
+
+<!-- MULTILINGUAL -->
+<section class="multilingual section" id="languages">
+  <div class="section-inner">
+    <div class="eyebrow eyebrow-pink" style="justify-content:center;">Care in Your Language</div>
+    <h2>Dubai is the world.<br><em>We speak its languages.</em></h2>
+    <p class="body" style="max-width:560px;margin:0 auto;">With over 88% of Dubai's population being expats, finding a doctor who truly speaks your language — culturally and literally — matters. Dr. Nidhi does.</p>
+    <div class="lang-grid">
+      <div class="lang-card">
+        <span class="lang-flag">🇬🇧</span>
+        <div class="lang-name">English</div>
+        <div class="lang-native">Fluent</div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Hindi</div>
+        <div class="lang-native">हिंदी</div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Gujarati</div>
+        <div class="lang-native">ગુજરાતી</div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Punjabi</div>
+        <div class="lang-native">ਪੰਜਾਬੀ</div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag">🇮🇳</span>
+        <div class="lang-name">Marathi</div>
+        <div class="lang-native">मराठी</div>
+      </div>
+      <div class="lang-card">
+        <span class="lang-flag">🇦🇪</span>
+        <div class="lang-name">Arabic</div>
+        <div class="lang-native">Basic</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRESS -->
+<section class="press section">
+  <div class="section-inner">
+    <div class="press-img">
+      <img src="photo-magazine.jpeg" alt="Dr. Nidhi featured in Incisal Edge Magazine">
+    </div>
+    <div>
+      <div class="eyebrow">As Seen In</div>
+      <h2>Making headlines<br><em>& smiles</em></h2>
+      <p class="body">Dr. Nidhi's unique blend of clinical excellence, improv-trained communication, and passion for paediatric dentistry has earned her recognition in leading dental publications and won her the prestigious Lucy Hobbs "Woman to Watch" award.</p>
+      <blockquote class="press-quote">"Improv taught me how to let go of inhibitions, be more comfortable being myself, and put others at ease."</blockquote>
+      <p class="press-source">Incisal Edge / Dentaltown Magazine · "All the Right Moves"</p>
+      <br><br>
+      <div class="creds-grid" style="margin-top:0;">
+        <div class="cred-card">
+          <div class="cred-icon">📰</div>
+          <div class="cred-title">Incisal Edge Magazine</div>
+          <div class="cred-sub">"Woman to Watch" 2023 — featured for improv & dentistry</div>
+        </div>
+        <div class="cred-card">
+          <div class="cred-icon">👩‍🏫</div>
+          <div class="cred-title">CE Instructor</div>
+          <div class="cred-sub">Taught 90+ general dentists across BC with 14 CE credits</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- INSTAGRAM -->
+<section class="instagram section">
+  <div class="section-inner">
+    <div class="insta-head">
+      <div class="eyebrow" style="justify-content:center;">Follow Along</div>
+      <h2>Tips, reels &<br><em>real talk</em> for parents</h2>
+      <p class="body">Evidence-based advice, behind-the-scenes moments, and kid-friendly oral health tips.</p>
+    </div>
+    <a href="https://instagram.com/babytoothdentist" class="insta-handle" target="_blank">@babytoothdentist</a>
+    <div class="insta-grid">
+      <div class="insta-tile">
+        <img src="photo-scrubs.jpeg" alt="Dr. Nidhi with dental puppet">
+        <div class="insta-overlay"><div class="insta-cap">Meet our puppet friend 🦕</div></div>
+      </div>
+      <div class="insta-tile">
+        <img src="photo-brushing.jpeg" alt="Brushing demo">
+        <div class="insta-overlay"><div class="insta-cap">How to brush baby teeth 🪥</div></div>
+      </div>
+      <div class="insta-tile">
+        <img src="photo-pink.jpeg" alt="Dr. Nidhi in pink">
+        <div class="insta-overlay"><div class="insta-cap">Pink Friday vibes 💕</div></div>
+      </div>
+      <div class="insta-tile">
+        <img src="photo-fun.jpeg" alt="Dr. Nidhi">
+        <div class="insta-overlay"><div class="insta-cap">Another day, another smile ✨</div></div>
+      </div>
+      <div class="insta-plain ip-1">
+        <div class="insta-plain-icon">👶</div>
+        <div class="insta-plain-label">Baby's first tooth</div>
+      </div>
+      <div class="insta-plain ip-2">
+        <div class="insta-plain-icon">👅</div>
+        <div class="insta-plain-label">Tongue tie signs</div>
+      </div>
+      <div class="insta-plain ip-3">
+        <div class="insta-plain-icon">🍬</div>
+        <div class="insta-plain-label">Sugar & cavity myths</div>
+      </div>
+      <div class="insta-plain ip-4">
+        <div class="insta-plain-icon">💧</div>
+        <div class="insta-plain-label">Fluoride: yes or no?</div>
+      </div>
+    </div>
+    <div style="text-align:center;">
+      <a href="https://instagram.com/babytoothdentist" target="_blank" class="cta-main" style="display:inline-block;text-decoration:none;">Follow on Instagram</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact section" id="contact">
+  <div class="section-inner">
+    <div>
+      <div class="eyebrow">Get in Touch</div>
+      <h2>Ready to book your<br><em>little one's</em> visit?</h2>
+      <p class="body">We'd love to welcome your family. No question is too small when it comes to your child's smile.</p>
+      <div class="contact-details">
+        <div class="cd-item"><div class="cd-icon">📍</div><span>Dubai, United Arab Emirates</span></div>
+        <div class="cd-item"><div class="cd-icon">✉️</div><span>nkotak@gmail.com</span></div>
+        <div class="cd-item"><div class="cd-icon">📸</div><span>@babytoothdentist</span></div>
+      </div>
+    </div>
+    <div class="contact-form">
+      <div class="form-title">Book an Appointment</div>
+      <div class="form-row">
+        <div class="form-group"><label>Parent's Name</label><input type="text" placeholder="Your name"></div>
+        <div class="form-group"><label>Child's Name</label><input type="text" placeholder="Child's name"></div>
+      </div>
+      <div class="form-row">
+        <div class="form-group"><label>Email</label><input type="email" placeholder="your@email.com"></div>
+        <div class="form-group"><label>Child's Age</label>
+          <select>
+            <option value="">Select age</option>
+            <option>Under 1 year</option><option>1–3 years</option>
+            <option>4–6 years</option><option>7–10 years</option><option>11–17 years</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-group"><label>Reason for Visit</label>
+        <select>
+          <option>First dental visit</option>
+          <option>Routine check-up & cleaning</option>
+          <option>Tooth pain / emergency</option>
+          <option>Tongue or lip tie</option>
+          <option>Sedation / hospital dentistry</option>
+          <option>Other</option>
+        </select>
+      </div>
+      <div class="form-group"><label>Message (optional)</label>
+        <textarea placeholder="Any concerns or questions for Dr. Nidhi?"></textarea>
+      </div>
+      <button class="btn-submit">Send Request</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-logo"><em>the baby tooth dentist</em> · Dr. Nidhi Kotak</div>
+  <div class="footer-links">
+    <a href="#about">About</a>
+    <a href="#services">Services</a>
+    <a href="#dr-nidhi">Dr. Nidhi</a>
+    <a href="#languages">Languages</a>
+    <a href="https://instagram.com/babytoothdentist" target="_blank">Instagram</a>
+  </div>
+  <div class="footer-copy">© 2026 Dr. Nidhi Kotak · Dubai, UAE</div>
+</footer>
+
+<a href="#contact" class="fab" title="Book an appointment">🦷</a>
+
+</body>
+</html>
